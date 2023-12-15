@@ -53,7 +53,7 @@ grid-template-columns: repeat(5,minmax(0,1fr));
 
 @media (max-width: 768px)
 {
-    grid-template-columns: repeat(1,minmax(0,1fr));
+    grid-template-columns: repeat(2,minmax(0,1fr));
     
 }
 `;
@@ -101,7 +101,7 @@ border: 3px solid rgb(249,249,249,0.1);
 &: hover{
 
     
-    border: 4px solid rgba(249,249,249,0.8);
+    border: 3px solid rgba(249,249,249,0.8);
     transition-duration: 300ms;
     transform: scale(1.05);
     box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,

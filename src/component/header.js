@@ -59,7 +59,7 @@ export default function Header()
 
     return (
         <nav className="header">
-            <a href=".">
+            <a href="/home">
             <img src="/images/logo.svg" alt="" width="75px" height="75px"/>
             </a>
             {!userName ? <Log onClick={()=>handleAuth()}>LOG IN</Log> : 
@@ -89,15 +89,14 @@ export default function Header()
                     <img className="home-logo" src="/images/series-icon.svg" alt="home" />
                     <span className="home-title">SERIES</span>
                 </a>
-                <Signout>
+            </nav>
+            <Signout>
                     <UserIMg src={userPhoto} alt={userName}/>
                     <Dropdown>
                        <span onClick={handleAuth}>Sign Out</span>
                     </Dropdown>
                     
                 </Signout>
-                
-            </nav>
             </>}
         </nav>
     )
@@ -148,8 +147,6 @@ display:flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-margin-left: 80vh;
-
 width: 100px;
 height: 100px;
 

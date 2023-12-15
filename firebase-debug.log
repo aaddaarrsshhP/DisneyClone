@@ -1,0 +1,40 @@
+[debug] [2023-12-12T07:07:09.047Z] ----------------------------------------------------------------------
+[debug] [2023-12-12T07:07:09.053Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-12-12T07:07:09.054Z] CLI Version:   13.0.1
+[debug] [2023-12-12T07:07:09.054Z] Platform:      linux
+[debug] [2023-12-12T07:07:09.055Z] Node Version:  v21.2.0
+[debug] [2023-12-12T07:07:09.055Z] Time:          Tue Dec 12 2023 12:37:09 GMT+0530 (India Standard Time)
+[debug] [2023-12-12T07:07:09.055Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-12T07:07:09.181Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-12-12T07:07:09.551Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-12T07:07:09.551Z] > authorizing via signed-in user (aadarshp502@gmail.com)
+[debug] [2023-12-12T07:07:09.552Z] [iam] checking project disney-clone-db482 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-12-12T07:07:09.553Z] > refreshing access token with scopes: []
+[debug] [2023-12-12T07:07:09.554Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-12-12T07:07:09.555Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-12-12T07:07:10.055Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-12-12T07:07:10.056Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-12-12T07:07:10.259Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/disney-clone-db482:testIamPermissions [none]
+[debug] [2023-12-12T07:07:10.259Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/disney-clone-db482:testIamPermissions x-goog-quota-user=projects/disney-clone-db482
+[debug] [2023-12-12T07:07:10.260Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/disney-clone-db482:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-12T07:07:15.302Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-12-12T07:07:15.303Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2023-12-12T07:07:25.276Z] *** [apiv2] error from fetch(https://cloudresourcemanager.googleapis.com/v1/projects/disney-clone-db482:testIamPermissions, {"headers":{},"method":"POST","body":"{\"permissions\":[\"firebase.projects.get\",\"firebasehosting.sites.update\"]}"}): FetchError: request to https://cloudresourcemanager.googleapis.com/v1/projects/disney-clone-db482:testIamPermissions failed, reason: getaddrinfo EAI_AGAIN cloudresourcemanager.googleapis.com
+[debug] [2023-12-12T07:07:25.276Z] [iam] error while checking permissions, command may fail: FirebaseError: Failed to make request to https://cloudresourcemanager.googleapis.com/v1/projects/disney-clone-db482:testIamPermissions
+[debug] [2023-12-12T07:07:25.278Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/disney-clone-db482 [none]
+[debug] [2023-12-12T07:07:26.002Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/disney-clone-db482 200
+[debug] [2023-12-12T07:07:26.003Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/disney-clone-db482 {"projectId":"disney-clone-db482","projectNumber":"278467477416","displayName":"disney-clone","name":"projects/disney-clone-db482","resources":{"hostingSite":"disney-clone-db482"},"state":"ACTIVE","etag":"1_84112a1d-32e5-4478-84eb-06f584cfa851"}
+[info] 
+[info] === Deploying to 'disney-clone-db482'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-12-12T07:07:26.019Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/disney-clone-db482/versions [none]
+[debug] [2023-12-12T07:07:26.019Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/disney-clone-db482/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-12-12T07:07:41.031Z] *** [apiv2] error from fetch(https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/disney-clone-db482/versions, {"headers":{},"method":"POST","body":"{\"status\":\"CREATED\",\"labels\":{\"deployment-tool\":\"cli-firebase\"}}"}): FetchError: request to https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/disney-clone-db482/versions failed, reason: getaddrinfo EAI_AGAIN firebasehosting.googleapis.com
+[debug] [2023-12-12T07:07:46.035Z] Error: Timed out.
+    at Timeout._onTimeout (/usr/local/lib/node_modules/firebase-tools/lib/utils.js:258:49)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[error] 
+[error] Error: An unexpected error has occurred.

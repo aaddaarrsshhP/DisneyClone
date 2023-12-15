@@ -11,6 +11,7 @@ import db from "../firebase";
 import { setMovies } from "../feature/user/movieSlice";
 import { selectUserName } from "../feature/user/userSlice";
 import { collection,onSnapshot } from "firebase/firestore";
+import Footer from "./footer";
 
 
 export default function Home(){
@@ -74,6 +75,7 @@ export default function Home(){
             <NewAtDisney />
             <Originals />
             <Trending />
+            <Footer />
         </Container>
     )
 

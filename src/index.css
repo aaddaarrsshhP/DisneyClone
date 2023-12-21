@@ -87,6 +87,10 @@ a{
   margin-right: 1vh;
 }
 
+.home:hover{
+  cursor: pointer;
+}
+
 .home::after{
   position: absolute;
   content: '';

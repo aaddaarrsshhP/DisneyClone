@@ -3,12 +3,36 @@ import { useEffect,useState } from "react";
 import { useParams } from "react-router-dom";
 import { doc,getDoc } from "firebase/firestore";
 import db from "../firebase";
-
+import { useDispatch, useSelector } from "react-redux";
+import { addWacthList, getWatchList } from "../feature/user/watchlistSlice";
 
 export default function Detail()
 {
     const {id}=useParams();
     const [detail,setDetail]=useState({});
+    const list=useSelector(getWatchList);
+    const dispatch=useDispatch();
+    console.log(list);
+    function watchListAdd(movieId){
+
+        if(list===null)
+        {
+            const data=[detail]
+            console.log('data:',data);
+            dispatch(addWacthList(data))
+        }
+        else if(list.find(data=>data.id===movieId))
+        {
+            return ;
+        }
+        else
+        {
+
+            const data=[...list,{...detail,id:movieId}]
+            console.log('updated: ',data);
+            dispatch(addWacthList(data))
+        }
+    }
 
     useEffect(()=>{
 
@@ -24,7 +48,7 @@ export default function Detail()
         .catch(err=>console.log('error'))
     },[id])
 
-
+    console.log('details: ',detail);
 
     return (
         <Container>
@@ -44,7 +68,7 @@ export default function Detail()
                         <img src="/images//play-icon-white.png" alt=""/>
                         <span>Trailer</span>
                     </Trailer>
-                    <Additems>
+                    <Additems onClick={()=>watchListAdd(id)}>
                         <img src="/images/add-plus-svgrepo-com.svg" alt=""/>
                     </Additems>
                     <Groupwatch>

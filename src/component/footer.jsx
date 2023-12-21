@@ -22,7 +22,7 @@ export default function Footer()
             <Content3>
             <h4>Need Help ?</h4>
                 <div>
-                    <h5>Visit Helpcenter</h5>
+                  <h5>Visit Helpcenter</h5>
                     <h5>Share Feedback</h5>
                 </div>
             </Content3>

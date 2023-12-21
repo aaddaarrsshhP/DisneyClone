@@ -65,7 +65,8 @@ export default function Header()
             {!userName ? <Log onClick={()=>handleAuth()}>LOG IN</Log> : 
             <>
             <nav className="menu">
-                <a className="home" href="/home">
+                
+                <a className="home" onClick={()=>navigate('/home')}>
                     <img className="home-logo" src="/images/home-icon.svg" alt="home" />
                     <span className="home-title">HOME</span>
                 </a>
@@ -73,7 +74,7 @@ export default function Header()
                     <img className="home-logo" src="/images/search-icon.svg" alt="home" />
                     <span className="home-title">SEARCH</span>
                 </a>
-                <a className="home" href="/home">
+                <a className="home" onClick={()=>navigate('/watchlist')}>
                     <img className="home-logo" src="/images/watchlist-icon.svg" alt="home" />
                     <span className="home-title">WATCHLIST</span>
                 </a>

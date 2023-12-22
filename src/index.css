@@ -136,3 +136,10 @@ a{
 }
 
 
+.glowable-text {
+  color: white;
+}
+
+[glow] .glowable-text {
+  color: var(--glow-color);
+}

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { getWatchList } from '../feature/user/watchlistSlice'
 import { styled } from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
+import { Glow,GlowCapture } from '@codaworks/react-glow';
 
 export default function Watchlist() {
 
@@ -13,7 +14,10 @@ export default function Watchlist() {
   return (
     <Container>
         <h2>Watchlist</h2>
-        <Content>
+        <GlowCapture>
+          <Glow color='hsl(219, 82%, 19%)'>
+
+        <Content className='glowable-text'>
           {!watchList.length ? <h3>Please Add Movies To Watch...</h3> : watchList.map(data=><Wrap>
             
             <Link to={`/detail/${data.id}`}>
@@ -23,6 +27,8 @@ export default function Watchlist() {
             
             </Wrap>)}
         </Content>
+          </Glow>
+        </GlowCapture>
     </Container>
   )
 }
@@ -55,6 +61,7 @@ const Content=styled.div`
 display: grid;
 grid-gap: 4vw;
 grid-template-columns: repeat(4,minmax(0,1fr));
+
 
 h2{
 

@@ -59,7 +59,7 @@ export default function Header()
 
     return (
         <nav className="header">
-            <a href="/">
+            <a>
             <img src="/images/logo.svg" alt="" width="75px" height="75px"/>
             </a>
             {!userName ? <Log onClick={()=>handleAuth()}>LOG IN</Log> : 

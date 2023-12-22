@@ -13,17 +13,22 @@ export default function Detail()
     const list=useSelector(getWatchList);
     const dispatch=useDispatch();
     console.log(list);
+    console.log('length:',list.length);
+    
+    
     function watchListAdd(movieId){
 
-        if(list===null)
+        if(!list.length)
         {
-            const data=[detail]
+            const data=[{...detail,id:movieId}]
             console.log('data:',data);
             dispatch(addWacthList(data))
         }
         else if(list.find(data=>data.id===movieId))
         {
-            return ;
+            const data=list.filter(data=>data.id!==movieId)
+            console.log('removed: ',data);
+            dispatch(addWacthList(data))
         }
         else
         {
@@ -69,7 +74,7 @@ export default function Detail()
                         <span>Trailer</span>
                     </Trailer>
                     <Additems onClick={()=>watchListAdd(id)}>
-                        <img src="/images/add-plus-svgrepo-com.svg" alt=""/>
+                        {list.find(data=>data.id===id)? <img src="/images/check-symbol-4795.svg" alt=""/> : <img src="/images/add-plus-svgrepo-com.svg" alt=""/>}
                     </Additems>
                     <Groupwatch>
                         <img src="/images/group-icon.png" alt=""/>

@@ -18,34 +18,40 @@ export default function Home(){
 
     const dispatch=useDispatch();
     const userName=useSelector(selectUserName);
-    let recommends=[];
-    let newDisney=[];
-    let originals=[];
-    let trending=[];
+    
 
     useEffect(()=>{
-        
+        let recommends=[];
+       let newDisney=[];
+       let originals=[];
+        let trending=[];
       onSnapshot(collection(db, "movies"),(doc)=>{
-            doc.docs.map(item=>{
+            const ar=doc.docs.map(item=>{
                 
                 switch(item.data().type){
                 case 'recommend':
+                    console.log("recomm",item.data());
                     recommends=[...recommends,{id:item.id,...item.data()}]
+                    return 1;
                     break;
 
                 case 'new':
                     newDisney=[...newDisney,{id:item.id,...item.data()}]
+                    return 1;
                     break;
                     
                     case 'original':
                         originals=[...originals,{id:item.id,...item.data()}]
+                        return 1;
                         break;
  
                          case 'trending':
                             trending=[...trending,{id:item.id,...item.data()}]
+                            return 1;
                             break;
 
                         default: 
+                                return 1;
                                 console.log('default');
                             
             }

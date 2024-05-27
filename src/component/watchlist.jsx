@@ -15,7 +15,7 @@ export default function Watchlist() {
     <Container>
         <h2>Watchlist</h2>
         <GlowCapture>
-          <Glow color='hsl(219, 82%, 19%)'>
+          <Glow color='#007FFF'>
 
         <Content className='glowable-text'>
           {!watchList.length ? <h3>Please Add Movies To Watch...</h3> : watchList.map(data=><Wrap>
